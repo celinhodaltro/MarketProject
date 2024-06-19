@@ -1,0 +1,25 @@
+﻿@using System.Reflection
+<Router AppAssembly="@typeof(MauiProgram).Assembly" AdditionalAssemblies="GetAdditionalAssemblies()">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(Layout.MainLayout)" />
+        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+    </Found>
+    <NotFound>
+        <p>Sorry, there's nothing at this address.</p>
+    </NotFound>
+</Router>
+
+
+@code {
+    private Assembly[] GetAdditionalAssemblies()
+    {
+
+        var ExternalProjectAssemblies = Assembly.Load("System.Pages");
+        var loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
+        var razorPageAssemblies = loadedAssemblies
+            .Where(assembly => assembly.GetTypes().Any(type => typeof(ComponentBase).IsAssignableFrom(type) && type.GetCustomAttributes(typeof(RouteAttribute), true).Any()))
+            .ToArray();
+
+        return razorPageAssemblies;
+    }
+}
