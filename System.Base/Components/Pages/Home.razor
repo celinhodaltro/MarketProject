@@ -4,8 +4,11 @@
 
 @code {
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
+        await Task.Yield(); 
+
+
         Navigation.NavigateTo("/Home/Index");
     }
 }

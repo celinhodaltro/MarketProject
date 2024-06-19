@@ -20,6 +20,10 @@ namespace System.Base.WinUI
         }
 
         protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
+
+
     }
+
+
 
 }

@@ -22,9 +22,12 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAntiforgery();
 
-app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode();
 var ExternalProjectAssemblies = Assembly.Load("System.Pages");
+
+app.MapRazorComponents<App>()
+    .AddInteractiveServerRenderMode()
+    .AddAdditionalAssemblies(ExternalProjectAssemblies);
+
 app.Run();
 
 

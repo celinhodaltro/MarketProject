@@ -1,25 +1,22 @@
 ﻿@using System.Reflection
-
-<Router AppAssembly="typeof(Program).Assembly" AdditionalAssemblies="GetAdditionalAssemblies()">
+<Router AppAssembly="@typeof(Program).Assembly" AdditionalAssemblies="GetAdditionalAssemblies()">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(System.Pages.Pages.Layout.MainLayout)" />
-        <FocusOnNavigate RouteData="routeData" Selector="h1" />
+        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
     </Found>
     <NotFound>
         <p>Sorry, there's nothing at this address.</p>
     </NotFound>
 </Router>
 
-
 @code {
+
     private Assembly[] GetAdditionalAssemblies()
     {
-        var loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
-        var razorPageAssemblies = loadedAssemblies
-            .Where(assembly => assembly.GetTypes().Any(type => typeof(ComponentBase).IsAssignableFrom(type) && type.GetCustomAttributes(typeof(RouteAttribute), true).Any()))
-            .ToArray();
-        
+        // Carregar o assembly das páginas Razor do projeto secundário
+        var externalProjectAssembly = Assembly.Load("System.Pages");
 
-        return razorPageAssemblies;
+        // Retornar o assembly carregado
+        return new Assembly[] { externalProjectAssembly };
     }
 }

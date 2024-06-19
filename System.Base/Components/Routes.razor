@@ -9,24 +9,15 @@
     </NotFound>
 </Router>
 
-
 @code {
-
     [Inject] NavigationManager Navigation { get; set; }
-
-
 
     private Assembly[] GetAdditionalAssemblies()
     {
+        // Carregar o assembly das páginas Razor do projeto secundário
+        var externalProjectAssembly = Assembly.Load("System.Pages");
 
-        var ExternalProjectAssemblies = Assembly.Load("System.Pages");
-        var loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
-        var razorPageAssemblies = loadedAssemblies
-            .Where(assembly => assembly.GetTypes().Any(type => typeof(ComponentBase).IsAssignableFrom(type) && type.GetCustomAttributes(typeof(RouteAttribute), true).Any()))
-            .ToArray();
-
-        return razorPageAssemblies;
+        // Retornar o assembly carregado
+        return new Assembly[] { externalProjectAssembly };
     }
-
-
 }

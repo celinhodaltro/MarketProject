@@ -1,4 +1,6 @@
-﻿namespace System.Base
+﻿using Application = Microsoft.Maui.Controls.Application;
+
+namespace System.Base
 {
     public partial class App : Application
     {
@@ -9,4 +11,6 @@
             MainPage = new Microsoft.Maui.Controls.NavigationPage(new MainPage());
         }
     }
+
+
 }

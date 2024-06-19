@@ -4,8 +4,11 @@
 
 @code {
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
+        await Task.Yield(); // Aguarda o processamento atual terminar antes de continuar
+
+        // Agora você pode navegar para outra página
         Navigation.NavigateTo("/Home/Index");
     }
 }
