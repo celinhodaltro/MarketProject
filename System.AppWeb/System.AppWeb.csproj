@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\System.Pages\System.Pages.csproj" />
+  </ItemGroup>
+
 </Project>

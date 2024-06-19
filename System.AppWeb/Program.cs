@@ -1,4 +1,5 @@
 using System.AppWeb.Components;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,5 +24,7 @@ app.UseAntiforgery();
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
-
+var ExternalProjectAssemblies = Assembly.Load("System.Pages");
 app.Run();
+
+
