@@ -23,6 +23,6 @@ BlazorHybridAppBase/
 │   ├── Program.cs                    # Arquivo de inicialização do projeto híbrido
 │   └── BlazorHybridApp.Hybrid.csproj # Arquivo de projeto do Hybrid
 │
-└── BlazorHybridApp.Pages/           # Projeto de Páginas Compartilhadas
+└── System.Pages/                     # Projeto de Páginas Compartilhadas
     ├── Pages/                        # Páginas compartilhadas entre Web e Hybrid
-    └── BlazorHybridApp.Pages.csproj  # Arquivo de projeto do Shared
+    └── System.Pages.csproj           # Arquivo de projeto do Shared
