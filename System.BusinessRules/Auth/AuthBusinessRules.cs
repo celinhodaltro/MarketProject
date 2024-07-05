@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Components.Authorization;
 
 using Microsoft.AspNetCore.Authorization;
 
+namespace System.BusinessRules;
+
 public class AuthBusinessRules : AuthenticationStateProvider
 {
   private readonly AuthProvider AuthProvider;
@@ -13,14 +15,6 @@ public class AuthBusinessRules : AuthenticationStateProvider
   public AuthBusinessRules(AuthProvider authProvider)
   {
     AuthProvider = authProvider;
-  }
-
-  public override async Task<AuthenticationState> GetAuthenticationStateAsync()
-  {
-    var usuario = new ClaimsIdentity();
-
-    return await Task.FromResult(new AuthenticationState(
-      new ClaimsPrincipal(usuario)));
   }
 
   public async Task<ClaimsPrincipal> Login(Account account)
@@ -39,11 +33,36 @@ public class AuthBusinessRules : AuthenticationStateProvider
       return user;
     }
 
-    throw new UnauthorizedAccessException("Credenciais inválidas");
+    throw new UnauthorizedAccessException("Invalid credentials!");
+  }
+
+
+  public async Task Register(Account account)
+  {
+    if (await this.AuthProvider.GetAccount(account.Login) is Account)
+      throw new Exception("This name already exists!");
+
+
+    await this.AuthProvider.CreateAccount(account);
+
   }
 
   public async Task Logout()
   {
     var anonymousUser = new ClaimsPrincipal();
+  }
+
+
+
+  public override async Task<AuthenticationState> GetAuthenticationStateAsync()
+  {
+    var usuario = new ClaimsIdentity(new List<Claim>()
+    {
+      new Claim("Chave", "Valor"),
+      new Claim(ClaimTypes.Name, "jOÃO"),
+    }, "demo");
+
+    return await Task.FromResult(new AuthenticationState(
+      new ClaimsPrincipal(usuario)));
   }
 }

@@ -10,6 +10,14 @@ namespace System.Entities
 {
   public class DefaultDB
   {
+
+    public DefaultDB()
+    {
+      UniqueId = Guid.NewGuid();
+      IsDeleted = false;
+      IsUpdated = false;
+    }
+
     [Key]
     public int Id { get; set; }
 

@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddCascadingAuthenticationState();
+
 System.Injects.Injecter.ExecuteInject(builder.Services);
 
 var app = builder.Build();

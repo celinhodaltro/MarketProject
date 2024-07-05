@@ -1,12 +1,11 @@
-@page "/Auth/Login"
-
-
+@page "/Auth/Register"
+@rendermode InteractiveServer
+@inject AuthBusinessRules AuthBusinessRules
 
 <div class="login-container">
     <h3>Login</h3>
-    <EditForm Model="@AccountModel">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
+    <EditForm Model="@AccountModel" OnSubmit="HandleRegister">
+
 
         <div class="form-group">
             <label for="username">Username</label>
@@ -18,7 +17,16 @@
             <InputText id="password" type="password" class="form-control" @bind-Value="@AccountModel.Password" />
         </div>
 
+        <div class="form-group">
+            <label for="password">Password</label>
+            <InputText id="password" type="password" class="form-control" @bind-Value="@AccountModel.RepetPassword" />
+        </div>
+
+
         <button type="submit" class="btn btn-primary">Login</button>
+
+        <DataAnnotationsValidator />
+        <ValidationSummary />
     </EditForm>
 </div>
 
@@ -26,10 +34,9 @@
 @code {
     private Account AccountModel = new Account();
 
-    /*private bool HandleLogin()
+
+    private async Task HandleRegister()
     {
-
-
-
-    }*/
+        await this.AuthBusinessRules.Register(AccountModel);
+    }
 }

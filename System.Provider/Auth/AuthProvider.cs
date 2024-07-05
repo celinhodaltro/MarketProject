@@ -24,9 +24,19 @@ namespace System.Provider.Auth
     }
 
 
-    public async Task<Account> GetAccountByLogin(string login)
+    public async Task<Account> GetAccount(string login)
     {
       return await _context.Accounts.FirstOrDefaultAsync(a => a.Login == login);
+    }
+
+    public async Task<Account> GetAccount(string login, string password)
+    {
+      return await _context.Accounts.FirstOrDefaultAsync(a => a.Login == login && a.Password == password);
+    }
+
+    public async Task<Account> GetAccount(Account account)
+    {
+      return await _context.Accounts.FirstOrDefaultAsync(a => a.Login.Equals(account.Login) && a.Password.Equals(account.Password));
     }
 
     public async Task<Account> CreateAccount(Account account)

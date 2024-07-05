@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,5 +23,9 @@ namespace System.Entities
     [Required]
     [EmailAddress(ErrorMessage = "The email address is not valid.")]
     public string Email { get; set; } = "";
+
+    [NotMapped]
+    [Compare(nameof(Password), ErrorMessage = "Passwords do not match.")]
+    public string RepetPassword { get; set; }
   }
 }
