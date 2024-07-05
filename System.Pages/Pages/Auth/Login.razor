@@ -1,12 +1,11 @@
 @page "/Auth/Login"
-
+@rendermode InteractiveServer
+@inject AuthBusinessRules AuthBusinessRules
 
 
 <div class="login-container">
     <h3>Login</h3>
-    <EditForm Model="@AccountModel">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
+    <EditForm Model="@AccountModel" OnSubmit="HandleLogin">
 
         <div class="form-group">
             <label for="username">Username</label>
@@ -26,10 +25,8 @@
 @code {
     private Account AccountModel = new Account();
 
-    /*private bool HandleLogin()
+    private async Task HandleLogin()
     {
-
-
-
-    }*/
+        await AuthBusinessRules.Login(AccountModel);
+    }
 }

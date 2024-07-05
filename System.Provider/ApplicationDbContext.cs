@@ -10,17 +10,17 @@ public class ApplicationDbContext : DbContext
   public string ConnectionString { get; set; } = "Server=localhost;Database=Main;Uid=root;Pwd=admin";
 
 
+  public ApplicationDbContext() { }
+  public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+    : base(options)
+  {
+  }
   protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
   {
     if (!optionsBuilder.IsConfigured)
     {
       optionsBuilder.UseMySQL(ConnectionString);
     }
-  }
-
-  protected override void OnModelCreating(ModelBuilder modelBuilder)
-  {
-    base.OnModelCreating(modelBuilder);
   }
 
 

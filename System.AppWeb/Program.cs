@@ -8,11 +8,13 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 
-System.Injects.Injecter.ExecuteInject(builder.Services);
+System.Injects.Injecter.ExecuteServiceConfigs(builder.Services);
 
-var app = builder.Build();
+WebApplication app = builder.Build();
 
 
+app.UseAuthentication();
+app.UseAuthorization();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -26,6 +28,7 @@ app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 app.UseAntiforgery();
+
 
 var ExternalProjectAssemblies = Assembly.Load("System.Pages");
 

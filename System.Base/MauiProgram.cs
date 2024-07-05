@@ -13,7 +13,7 @@ namespace System.Base
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 });
-            System.Injects.Injecter.ExecuteInject(builder.Services);
+            System.Injects.Injecter.ExecuteServiceConfigs(builder.Services);
             builder.Services.AddMauiBlazorWebView();
 
             #if DEBUG
