@@ -13,11 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "System.Pages", "System.Page
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System.Server", "System.Server", "{E2625B25-8877-4203-80CC-1F920F805814}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.BusinessRules", "System.BusinessRules\System.BusinessRules.csproj", "{4FD7D523-9B47-408C-B6BC-7D0E38A1F865}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "System.BusinessRules", "System.BusinessRules\System.BusinessRules.csproj", "{4FD7D523-9B47-408C-B6BC-7D0E38A1F865}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Entities", "System.Entities\System.Entities.csproj", "{F9EF13F3-7469-41B8-8F5A-C83F7B96FA05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "System.Entities", "System.Entities\System.Entities.csproj", "{F9EF13F3-7469-41B8-8F5A-C83F7B96FA05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Provider", "System.Provider\System.Provider.csproj", "{D149C073-9405-4067-BE93-1B82B908D0E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "System.Provider", "System.Provider\System.Provider.csproj", "{D149C073-9405-4067-BE93-1B82B908D0E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

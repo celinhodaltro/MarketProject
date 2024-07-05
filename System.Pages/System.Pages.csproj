@@ -19,4 +19,8 @@
     <Folder Include="Components\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\System.Entities\System.Entities.csproj" />
+  </ItemGroup>
+
 </Project>
