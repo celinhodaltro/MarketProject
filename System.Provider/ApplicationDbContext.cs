@@ -6,19 +6,14 @@ using System.Configuration;
 
 public class ApplicationDbContext : DbContext
 {
-  //public DbSet<SeuModelo> SeusModelos { get; set; }
+  public string ConnectionString { get; set; } = "Server=localhost;Database=Main;Uid=root;Pwd=admin";
+
 
   protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
   {
     if (!optionsBuilder.IsConfigured)
     {
-      var configuration = new ConfigurationBuilder()
-        .SetBasePath(Directory.GetCurrentDirectory())
-        .AddJsonFile("appsettings.json")
-        .Build();
-
-      var connectionString = configuration.GetConnectionString("DefaultConnection");
-      optionsBuilder.UseMySQL(connectionString);
+      optionsBuilder.UseMySQL(ConnectionString);
     }
   }
 
@@ -26,6 +21,9 @@ public class ApplicationDbContext : DbContext
   {
     base.OnModelCreating(modelBuilder);
   }
+
+
+  //public DbSet<SeuModelo> SeusModelos { get; set; }
 
 
 }
