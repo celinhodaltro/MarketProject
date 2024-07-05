@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Entities;
 
 public class ApplicationDbContext : DbContext
 {
@@ -23,7 +24,7 @@ public class ApplicationDbContext : DbContext
   }
 
 
-  //public DbSet<SeuModelo> SeusModelos { get; set; }
+  public DbSet<Account> Accounts { get; set; }
 
 
 }

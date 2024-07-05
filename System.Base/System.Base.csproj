@@ -65,6 +65,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\System.Injects\System.Injects.csproj" />
       <ProjectReference Include="..\System.Pages\System.Pages.csproj" />
     </ItemGroup>
 

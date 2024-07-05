@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging;
 
 namespace System.Base
 {
@@ -13,7 +13,7 @@ namespace System.Base
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 });
-
+            System.Injects.Injecter.ExecuteInject(builder.Services);
             builder.Services.AddMauiBlazorWebView();
 
             #if DEBUG

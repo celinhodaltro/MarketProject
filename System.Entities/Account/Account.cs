@@ -10,6 +10,7 @@ namespace System.Entities
   public class Account : DefaultDB
   {
 
+
     [Required]
     [StringLength(100, MinimumLength = 6, ErrorMessage = "The Login must be at least 6 characters long.")]
     public String Login { get; set; } = "";
