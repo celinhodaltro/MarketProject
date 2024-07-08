@@ -46,16 +46,6 @@ namespace System.BusinessRules
         // Obtém o contexto HTTP usando o HttpContextAccessor
         var httpContext = HttpContextAccessor.HttpContext;
 
-        // Configura o cookie diretamente no contexto de resposta
-        httpContext.Response.Cookies.Append(CookieAuthenticationDefaults.CookiePrefix + CookieAuthenticationDefaults.AuthenticationScheme,
-            CookieAuthenticationDefaults.CookiePrefix + CookieAuthenticationDefaults.AuthenticationScheme,
-            new CookieOptions
-            {
-              HttpOnly = true,
-              Secure = true,
-              SameSite = SameSiteMode.None,
-              Expires = DateTime.Now.AddHours(1)
-            });
 
         // Realiza o login do usuário
         await httpContext.SignInAsync(
