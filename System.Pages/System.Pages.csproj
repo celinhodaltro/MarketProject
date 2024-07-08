@@ -17,12 +17,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Components\" />
+    <ProjectReference Include="..\System.BusinessRules\System.BusinessRules.csproj" />
+    <ProjectReference Include="..\System.Entities\System.Entities.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\System.BusinessRules\System.BusinessRules.csproj" />
-    <ProjectReference Include="..\System.Entities\System.Entities.csproj" />
+    <Folder Include="Components\" />
   </ItemGroup>
 
 </Project>

@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "System.Entities", "System.E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "System.Provider", "System.Provider\System.Provider.csproj", "{D149C073-9405-4067-BE93-1B82B908D0E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Injects", "System.Injects\System.Injects.csproj", "{4B1FE152-1C8C-40D5-88D8-7AEFE50B920A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "System.Injects", "System.Injects\System.Injects.csproj", "{4B1FE152-1C8C-40D5-88D8-7AEFE50B920A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

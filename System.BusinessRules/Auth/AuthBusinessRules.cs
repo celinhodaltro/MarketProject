@@ -25,7 +25,7 @@ namespace System.BusinessRules
     {
       account = await AuthProvider.GetAccount(account);
 
-      if (account != null)
+      if (account is Account)
       {
         var claims = new List<Claim>
         {
@@ -55,8 +55,8 @@ namespace System.BusinessRules
 
         return user;
       }
-
-      throw new UnauthorizedAccessException("Credenciais inválidas!");
+      else
+        throw new UnauthorizedAccessException("Credenciais inválidas!");
     }
 
 
