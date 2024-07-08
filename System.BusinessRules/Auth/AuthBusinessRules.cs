@@ -11,7 +11,7 @@ using System.Provider.Auth;
 
 namespace System.BusinessRules
 {
-  public class AuthBusinessRules : AuthenticationStateProvider
+  public class AuthBusinessRules 
   {
     private readonly AuthProvider AuthProvider;
     private readonly IHttpContextAccessor HttpContextAccessor;
@@ -76,18 +76,6 @@ namespace System.BusinessRules
       await HttpContextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
     }
 
-    public override async Task<AuthenticationState> GetAuthenticationStateAsync()
-    {
-      var claims = new List<Claim>
-            {
-                new Claim("Chave", "Valor"),
-                new Claim(ClaimTypes.Name, "João")
-            };
 
-      var identity = new ClaimsIdentity(claims, "demo");
-      var user = new ClaimsPrincipal(identity);
-
-      return await Task.FromResult(new AuthenticationState(user));
-    }
   }
 }

@@ -40,7 +40,6 @@ namespace System.Injects
 
     public static void InjectBussinessRules(IServiceCollection services)
     {
-      services.AddScoped<AuthenticationStateProvider, AuthBusinessRules>();
       services.AddScoped<AuthBusinessRules, AuthBusinessRules>();
     }
 

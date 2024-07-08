@@ -1,12 +1,12 @@
 using System.AppWeb.Components;
 using System.Reflection;
-
+using Microsoft.AspNetCore.Components.WebAssembly.Server;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents();
-
+    .AddInteractiveServerComponents()
+    .AddInteractiveWebAssemblyComponents();
 
 System.Injects.Injecter.ExecuteServiceConfigs(builder.Services);
 
@@ -34,7 +34,8 @@ var ExternalProjectAssemblies = Assembly.Load("System.Pages");
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
-    .AddAdditionalAssemblies(ExternalProjectAssemblies);
+    .AddAdditionalAssemblies(ExternalProjectAssemblies)
+    .AddInteractiveWebAssemblyRenderMode();
 
 app.Run();
 

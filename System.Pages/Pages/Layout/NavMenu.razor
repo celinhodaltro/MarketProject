@@ -1,4 +1,6 @@
-
+@using Microsoft.AspNetCore.Http
+@inject AuthBusinessRules AuthBusinessRules
+@rendermode InteractiveAuto
 
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
@@ -19,20 +21,15 @@
                 </div>
 
                 <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="counter">
-                        <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
+                    <NavLink class="nav-link">
+                        <span @onclick="HandleLoggout" class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Loggout
                     </NavLink>
+                    <button @onclick="HandleLoggout"></button>
                 </div>
-
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="weather">
-                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-                    </NavLink>
-                </div>
-                @context?.User.Identity.Name;
             </Authorized>
             <NotAuthorized>
                 <div class="nav-item px-3">
+
                     <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                         <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Não Autorizado!
                     </NavLink>
@@ -42,3 +39,12 @@
         </AuthorizeView>
     </nav>
 </div>
+
+@code{
+
+
+    public async Task HandleLoggout()
+    {
+        await AuthBusinessRules.Logout();
+    }
+}
