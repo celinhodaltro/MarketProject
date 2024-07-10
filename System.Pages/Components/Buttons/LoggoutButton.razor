@@ -1,16 +1,19 @@
 @inject AuthBusinessRules AuthBusinessRules
+@inject NavigationManager Navigation
 
-<EditForm Model="Model" OnSubmit="HandleLoggout" FormName="LoggoutForm">
-  <button type="submit" class="LoggoutButton" >LoggoutButton</button>
+<EditForm Model="@Model" OnSubmit="HandleLoggout" FormName="LoginForm">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+  <button type="submit">LoggoutButton</button>
 </EditForm>
 
 @code
 {
-    [SupplyParameterFromForm]
-    public Account Model { get; set; } = new();
+    public Account Model { get; set; } = new Account();
 
     public async Task HandleLoggout()
     {
         await AuthBusinessRules.Logout();
+        Navigation.NavigateTo("Auth/Login");
     }
 }
