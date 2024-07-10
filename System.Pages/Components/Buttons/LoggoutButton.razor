@@ -1,0 +1,16 @@
+@inject AuthBusinessRules AuthBusinessRules
+
+<EditForm Model="Model" OnSubmit="HandleLoggout" FormName="LoggoutForm">
+  <button type="submit" class="LoggoutButton" >LoggoutButton</button>
+</EditForm>
+
+@code
+{
+    [SupplyParameterFromForm]
+    public Account Model { get; set; } = new();
+
+    public async Task HandleLoggout()
+    {
+        await AuthBusinessRules.Logout();
+    }
+}

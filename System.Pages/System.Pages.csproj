@@ -21,8 +21,4 @@
     <ProjectReference Include="..\System.Entities\System.Entities.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Components\" />
-  </ItemGroup>
-
 </Project>

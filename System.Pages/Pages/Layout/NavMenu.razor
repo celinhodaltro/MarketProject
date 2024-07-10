@@ -1,7 +1,6 @@
 @using Microsoft.AspNetCore.Http
 @inject AuthBusinessRules AuthBusinessRules
 @rendermode InteractiveAuto
-
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">System.AppWeb</a>
@@ -24,7 +23,7 @@
                     <NavLink class="nav-link">
                         <span @onclick="HandleLoggout" class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Loggout
                     </NavLink>
-                    <button @onclick="HandleLoggout"></button>
+                    <LoggoutButton></LoggoutButton>
                 </div>
             </Authorized>
             <NotAuthorized>
@@ -40,7 +39,8 @@
     </nav>
 </div>
 
-@code{
+@code
+{
 
 
     public async Task HandleLoggout()
